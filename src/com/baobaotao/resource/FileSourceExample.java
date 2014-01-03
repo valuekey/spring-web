@@ -15,7 +15,7 @@ public class FileSourceExample {
             Resource res1 = new FileSystemResource(filePath);
             Resource res2 = new ClassPathResource(classPath);
 
-        //    InputStream ins1 = res1.getInputStream();
+            InputStream ins1 = res1.getInputStream();
             InputStream ins2 = res2.getInputStream();
 
             System.out.println("res1:" + res1.getFilename());
