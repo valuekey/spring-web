@@ -11,12 +11,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 
 public class BeanFactoryTest {
     public static void main(String[] args) throws Throwable {
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        Resource res = resolver.getResource("classpath:com/baobaotao/beanfactory/beans.xml");
-        BeanDefinitionRegistry registry = new 
-        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(registry);
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-        beanFactory.set
+
         
     }
 
