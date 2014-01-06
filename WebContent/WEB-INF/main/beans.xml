@@ -5,8 +5,19 @@
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<!--<bean id="car1" class="com.baobaotao.reflect.Car" p:brand="BMW"
 		p:color="BLUE" p:maxSpeed="200" />-->
-	<bean id="car" class="com.baobaotao.Car" init-method="myInit"
+	<!--<bean id="car" class="com.baobaotao.Car" init-method="myInit"
 		destroy-method="myDestory" p:brand="BMW" p:speed="200"></bean>
 	<bean id="myBeanPostProcessor" class="com.baobaotao.context.MyBeanPostProcessor"></bean>
-	<bean id="myBeanFactoryPostProcessor" class="com.baobaotao.context.MyBeanFactoryPostProcessor" />
+	<bean id="myBeanFactoryPostProcessor" class="com.baobaotao.context.MyBeanFactoryPostProcessor" />-->
+	<bean id="car" class="com.baobaotao.ditype.Car">
+	   <property name="maxSpeed"><value>200</value></property>
+	   <property name="brand"><value>BMW</value></property>
+	   <property name="price"><value>20000.00</value></property>
+	</bean>
+	<bean id="car1" class="com.baobaotao.ditype.Car">
+	   <constructor-arg index="0" type="java.lang.String"><value>BMW</value></constructor-arg>
+	   <constructor-arg index="1" value="20000"></constructor-arg>
+	</bean>
+	<bean id="carFactory" class="com.baobaotao.ditype.CarFactory"/>
+    <bean id="car5" class="com.baobaotao.ditype.CarFactory" factory-method="createHongQiCar"></bean>
 </beans>
