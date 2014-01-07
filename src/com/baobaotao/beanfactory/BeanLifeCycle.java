@@ -13,6 +13,7 @@ public class BeanLifeCycle {
 
     /**
      * [メソッドの説明を書きましょう]
+     * 
      * @param args
      */
     public static void main(String[] args) {
@@ -21,14 +22,18 @@ public class BeanLifeCycle {
     }
 
     private static void LifeCycleInBeanFactory() {
-        Resource res = new ClassPathResource("com/baobaotao/beanfactory/beans.xml");
+        Resource res = new ClassPathResource(
+                "com/baobaotao/beanfactory/beans.xml");
         BeanFactory bf = new DefaultListableBeanFactory();
-        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader((DefaultListableBeanFactory) bf);
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(
+                (DefaultListableBeanFactory) bf);
         reader.loadBeanDefinitions(res);
 
-        ((ConfigurableBeanFactory) bf).addBeanPostProcessor(new MyBeanPostProcessor());
+        ((ConfigurableBeanFactory) bf)
+                .addBeanPostProcessor(new MyBeanPostProcessor());
 
-        ((ConfigurableBeanFactory) bf).addBeanPostProcessor(new MyInstantiationAwareBeanPostProcessor());
+        ((ConfigurableBeanFactory) bf)
+                .addBeanPostProcessor(new MyInstantiationAwareBeanPostProcessor());
 
         Car car1 = (Car) bf.getBean("car");
         car1.introduce();

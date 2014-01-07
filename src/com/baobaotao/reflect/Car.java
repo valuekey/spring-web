@@ -9,16 +9,18 @@ public class Car {
     private String color;
     private int speed;
 
-    public Car(){}
+    public Car() {
+    }
 
-    public Car(String brand, String color, int speed){
+    public Car(String brand, String color, int speed) {
         this.brand = brand;
         this.color = color;
         this.speed = speed;
     }
 
-    public void introduce(){
-        System.out.println("Brand:" + this.brand + " Color:" + this.color + " Speed:" + this.speed + "KM/H");
+    public void introduce() {
+        System.out.println("Brand:" + this.brand + " Color:" + this.color
+                + " Speed:" + this.speed + "KM/H");
     }
 
     public String getBrand() {

@@ -12,7 +12,6 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 public class BeanFactoryTest {
     public static void main(String[] args) throws Throwable {
 
-        
     }
 
 }

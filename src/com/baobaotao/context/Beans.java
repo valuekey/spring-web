@@ -7,9 +7,9 @@ import com.baobaotao.reflect.Car;
 
 @Configuration
 public class Beans {
-    
+
     @Bean(name = "car")
-    public Car buildCar(){
+    public Car buildCar() {
         Car car = new Car();
         car.setBrand("HQ");
         car.setColor("RED");
