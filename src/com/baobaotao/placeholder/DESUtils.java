@@ -7,6 +7,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 
+import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 public class DESUtils {
@@ -27,7 +28,7 @@ public class DESUtils {
     public static String getEncryptString(String str) {
         BASE64Encoder base64Encoder = new BASE64Encoder();
         try {
-            byte[] strBytes = str.getBytes();
+            byte[] strBytes = str.getBytes("UTF8");
             Cipher cipher = Cipher.getInstance("DES");
             cipher.init(Cipher.ENCRYPT_MODE, key);
             byte[] encryptStrBytes = cipher.doFinal(strBytes);
@@ -37,11 +38,27 @@ public class DESUtils {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public static String getDecryptString(String str) {
+        BASE64Decoder base64Decoder = new BASE64Decoder();
+        try {
+            byte[] strBytes = base64Decoder.decodeBuffer(str);
+            Cipher cipher = Cipher.getInstance("DES");
+            cipher.init(Cipher.DECRYPT_MODE, key);
+            byte[] decryptStrBytes = cipher.doFinal(strBytes);
+            return new String(decryptStrBytes,"UTF8");
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void main(String[] args) {
+        System.out.println(getEncryptString("121517"));
         System.out.println(getEncryptString("123456789a"));
+        System.out.println(getDecryptString("d0iM1qq5PF5eBa0vYQ8A7g=="));
     }
 
 }

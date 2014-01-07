@@ -24,22 +24,25 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
         factory-method="createHongQiCar"></bean> <util:list id="favoriteList" list-class="java.util.LinkedList"> 
         <value>11</value> <value>22</value> </util:list> <util:map id="emails1"> 
         <entry key="AM" value="haha"></entry> <entry key="PM" value="hehe"></entry> 
-        </util:map> <bean id="car" class="com.baobaotao.injectfun.Car" p:brand="BMW"+ 
-        p:price="20000.00" scope="prototype" /> <bean id="magicBoss" class="com.baobaotao.injectfun.MagicBoss"> 
-        <lookup-method name="getCar" bean="car" /> </bean> -->
+        </util:map> <bean id="car" class="com.baobaotao.injectfun.Car" p:brand="BMW" 
+        + p:price="20000.00" scope="prototype" /> <bean id="magicBoss" class="com.baobaotao.injectfun.MagicBoss"> 
+        <lookup-method name="getCar" bean="car" /> </bean> <context:component-scan 
+        base-package=""></context:component-scan> <bean id="car" class="com.baobaotao.injectfun.Car" 
+        p:brand="BMW" p:price="20000.00" /> <context:property-placeholder /> -->
 
-    <!-- <context:component-scan base-package=""></context:component-scan> -->
-    <!-- <bean id="car" class="com.baobaotao.injectfun.Car" p:brand="BMW" 
-        p:price="20000.00" /> -->
+    <context:component-scan base-package="com.baobaotao.placeholder"></context:component-scan>
 
-    <!-- <context:property-placeholder /> -->
-
+    <!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" 
+        p:location="classpath:com/baobaotao/placeholder/jdbc.properties" p:fileEncoding="utf-8" 
+        /> -->
 
     <bean
-        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+        class="com.baobaotao.placeholder.EncryptPropertyPlaceholderConfigurer"
         p:location="classpath:com/baobaotao/placeholder/jdbc.properties"
-        p:fileEncoding="utf-8"></bean>
+        p:fileEncoding="utf-8" />
 
-    <bean></bean>
+    <bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource"
+        destroy-method="close" p:driverClassName="${driverClassName}"
+        p:url="${url}" p:username="${username}" p:password="${password}" />
 
 </beans>
