@@ -52,8 +52,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	</bean> -->
 
     <!-- <context:component-scan base-package=""></context:component-scan> -->
-        <bean id="car" class="com.baobaotao.injectfun.Car" p:brand="BMW"
+        <bean id="car1" class="com.baobaotao.anno.Car" p:brand="BMW"
         p:price="20000.00" />
-        
-       <!--  <context:property-placeholder /> -->
+        <context:component-scan base-package="com.baobaotao"></context:component-scan>
 </beans>
