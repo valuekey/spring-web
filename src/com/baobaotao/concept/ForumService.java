@@ -1,11 +1,7 @@
 package com.baobaotao.concept;
 
-public class ForumService {
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-    }
-
+public interface ForumService {
+    public abstract void removeTopic(int topicId);
+    
+    public abstract void removeForum(int forumId);
 }

@@ -13,8 +13,10 @@ public class PerformanceHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args)
             throws Throwable {
-        performance
+        PerformanceMonitor.begin(target.getClass().getName() + "." + method.getName());
+        Object obj = method.invoke(target, args);
+        PerformanceMonitor.end();
         
-        return null;
+        return obj;
     }
 }
