@@ -4,6 +4,7 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 
 public class ControllablePerformanceMonitor extends DelegatingIntroductionInterceptor implements Monitorable{
+
     private ThreadLocal<Boolean> monitorStatusMap = new ThreadLocal<Boolean>();
     
     @Override
@@ -19,6 +20,8 @@ public class ControllablePerformanceMonitor extends DelegatingIntroductionInterc
             PerformanceMonitor.begin(mi.getClass().getName() + "." + mi.getMethod().getName());
             obj = super.invoke(mi);
             PerformanceMonitor.end();
+        }else {
+            obj = super.invoke(mi);
         }
         return obj;
     }
