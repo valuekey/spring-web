@@ -29,6 +29,16 @@ p:interceptorNames="regexpAdvisor"
 p:target-ref="waiterTarget"
 p:proxyTargetClass="true"/>
 
+<bean id="dynamicAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor" 
 
+>
+<property name="pointcut"><bean class="com.baobaotao.advisor.GreetingDynamicPointcut"></bean></property>
+<property name="advice"><bean class="com.baobaotao.advisor.GreetingBeforAdvice"></bean></property>
+</bean>
+
+<bean id="waiter2" class="org.springframework.aop.framework.ProxyFactoryBean"
+p:interceptorNames="dynamicAdvisor"
+p:target-ref="waiterTarget"
+p:proxyTargetClass="true"/>
 
 </beans>

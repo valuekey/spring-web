@@ -12,12 +12,18 @@ public class Test {
         // TODO Auto-generated method stub
         ApplicationContext ct = new ClassPathXmlApplicationContext("com/baobaotao/advisor/beans.xml");
         
-        Waiter waiter = (Waiter)ct.getBean("waiter1");
+//        Waiter waiter = (Waiter)ct.getBean("waiter1");
 //        Seller seller = (Seller)ct.getBean("seller");
         
-        waiter.greetTo("YYQ");
-        waiter.serveTo("hehe");
+//        waiter.greetTo("YYQ");
+//        waiter.serveTo("hehe");
 //        seller.greetTo("YYQ");
+        Waiter waiter = (Waiter)ct.getBean("waiter2");
+        
+        waiter.serveTo("111");
+        waiter.greetTo("111");
+        waiter.serveTo("YYQ");
+        waiter.greetTo("YYQ");
     }
 
 }
