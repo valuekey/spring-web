@@ -20,6 +20,14 @@ p:proxyTargetClass="true"/>
 <bean id="waiter" parent="parent" p:target-ref="waiterTarget"/>
 <bean id="seller" parent="parent" p:target-ref="sellerTarget"/>
 
+<bean id="regexpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"
+p:advice-ref="greetingAdvice"
+p:patterns=".*greet.*"/>
+
+<bean id="waiter1" class="org.springframework.aop.framework.ProxyFactoryBean"
+p:interceptorNames="regexpAdvisor"
+p:target-ref="waiterTarget"
+p:proxyTargetClass="true"/>
 
 
 
