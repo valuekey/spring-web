@@ -18,12 +18,21 @@ public class Test {
 //        waiter.greetTo("YYQ");
 //        waiter.serveTo("hehe");
 //        seller.greetTo("YYQ");
-        Waiter waiter = (Waiter)ct.getBean("waiter2");
-        
-        waiter.serveTo("111");
-        waiter.greetTo("111");
-        waiter.serveTo("YYQ");
-        waiter.greetTo("YYQ");
+//        Waiter waiter = (Waiter)ct.getBean("waiter2");
+//        
+//        waiter.serveTo("111");
+//        waiter.greetTo("111");
+//        waiter.serveTo("YYQ");
+//        waiter.greetTo("YYQ");
+      Waiter waiter = (Waiter)ct.getBean("waiter3");
+      
+      WaiterDelegate delegate = new WaiterDelegate();
+      
+      delegate.setWaiter(waiter);
+      
+      waiter.serveTo("YYQ");
+      waiter.greetTo("YYQ");
+      delegate.service("YYQ");
     }
 
 }
