@@ -55,4 +55,16 @@ p:advice-ref="greetingAdvice"/>
 p:interceptorNames="controlFlowAdvisor"
 p:target-ref="waiterTarget"
 p:proxyTargetClass="true"/>
+
+<bean id="gcp" class="com.baobaotao.advisor.GreetingComposablePointcut"></bean>
+<bean id="composableAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor" 
+p:pointcut="#{gcp.intersectionPointcut}"
+p:advice-ref="greetingAdvice"/>
+
+<bean id="waiter4" class="org.springframework.aop.framework.ProxyFactoryBean"
+p:interceptorNames="composableAdvisor"
+p:target-ref="waiterTarget"
+p:proxyTargetClass="true"/>
+
+
 </beans>
