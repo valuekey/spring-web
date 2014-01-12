@@ -34,15 +34,21 @@ public class Test {
 //      waiter.greetTo("YYQ");
 //      delegate.service("YYQ");
         
-      Waiter waiter = (Waiter)ct.getBean("waiter4");
+//      Waiter waiter = (Waiter)ct.getBean("waiter4");
+//      
+//      WaiterDelegate delegate = new WaiterDelegate();
+//      
+//      delegate.setWaiter(waiter);
+//      
+//      waiter.serveTo("YYQ");
+//      waiter.greetTo("YYQ");
+//      delegate.service("YYQ");
+      Waiter waiter = (Waiter)ct.getBean("waiter11");
+      Seller seller = (Seller)ct.getBean("seller11");
       
-      WaiterDelegate delegate = new WaiterDelegate();
-      
-      delegate.setWaiter(waiter);
-      
-      waiter.serveTo("YYQ");
       waiter.greetTo("YYQ");
-      delegate.service("YYQ");
+      waiter.serveTo("YYQ");
+      seller.greetTo("YYQ");
     }
 
 }

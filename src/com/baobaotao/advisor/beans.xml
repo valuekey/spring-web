@@ -66,5 +66,12 @@ p:interceptorNames="composableAdvisor"
 p:target-ref="waiterTarget"
 p:proxyTargetClass="true"/>
 
+<bean id="waiter11" class="com.baobaotao.advisor.Waiter"></bean>
+<bean id="seller11" class="com.baobaotao.advisor.Seller"></bean>
+
+<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"
+p:beanNames="waiter11,seller11"
+p:optimize="true"
+p:interceptorNames="greetingAdvice"></bean>
 
 </beans>
