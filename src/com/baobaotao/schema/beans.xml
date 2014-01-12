@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut
+            expression="target(com.baobaotao.NaiveWaiter) and execution(* greetTo(..))"
+            id="greetToPointcut" />
+
+
+        <aop:aspect ref="adviceMethods">
+            <aop:before method="preGreeting" pointcut-ref="greetToPointcut" />
+            <aop:after method="postGreeting" pointcut-ref="greetToPointcut" />
+        </aop:aspect>
+
+    </aop:config>
+
+    <bean id="adviceMethods" class="com.baobaotao.schema.AdviceMethods" />
+    <bean id="naiveWaiter" class="com.baobaotao.NaiveWaiter" />
+</beans>
