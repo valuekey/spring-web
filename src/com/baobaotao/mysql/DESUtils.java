@@ -1,4 +1,4 @@
-package com.baobaotao.placeholder;
+package com.baobaotao.mysql;
 
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
@@ -54,11 +54,10 @@ public class DESUtils {
         }
         return null;
     }
-
+    
     public static void main(String[] args) {
-        System.out.println(getEncryptString("root"));
-        System.out.println(getEncryptString("123456789a"));
-        System.out.println(getDecryptString("d0iM1qq5PF5eBa0vYQ8A7g=="));
+        System.out.println(DESUtils.getEncryptString("root"));
+        System.out.println(DESUtils.getDecryptString("WnplV/ietfQ="));
     }
 
 }
