@@ -29,7 +29,7 @@ public class Test {
             connection.setAutoCommit(false);
             statement = connection.createStatement();
             resultSet = statement
-                    .executeQuery("select * from city");
+                    .executeQuery("select * from city where name = 'Rafah'");
             
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(2));

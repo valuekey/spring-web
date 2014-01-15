@@ -56,8 +56,6 @@ public class DESUtils {
     }
     
     public static void main(String[] args) {
-        System.out.println(DESUtils.getEncryptString("root"));
-        System.out.println(DESUtils.getDecryptString("WnplV/ietfQ="));
     }
 
 }
